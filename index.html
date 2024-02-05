@@ -17,8 +17,23 @@
             vr-mode-ui="enabled: false"
             embedded
             arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
-            <a-entity gltf-model="./assets/magnemite/scene.gltf" rotation="0 180 0" scale="0.15 0.15 0.15" gps-entity-place="longitude: 121.574867; latitude: 25.075951;" animation-mixer/>
+            <a-entity gltf-model="./assets/magnemite/scene.gltf" rotation="0 180 0" scale="0.1 0.1 0.1" gps-entity-place="longitude: 121.574867; latitude: 25.075951;" animation-mixer look-at="[gps-camera]"/>
             <a-camera gps-camera rotation-reader></a-camera>
         </a-scene>
     </body>
+    <script text="javascript">
+        // 取得使用者當前位置
+        navigator.geolocation.getCurrentPosition(function(position) {
+
+            // 填入緯度經度
+            var longitude = position.coords.longitude;
+            var latitude = position.coords.latitude;
+            // 設定模型屬性
+            document.querySelector('a-entity').setAttribute('gps-entity-place', {
+                longitude: longitude,
+                latitude: latitude
+            });
+
+        });
+    </script>
 </html>
