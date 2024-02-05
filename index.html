@@ -17,7 +17,7 @@
             vr-mode-ui="enabled: false"
             embedded
             arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
-            <a-entity gltf-model="./assets/articuno/scene.gltf" rotation="0 180 0" scale="0.01 0.01 0.01" animation-mixer look-at="[gps-camera]"/>
+            <a-entity gltf-model="./assets/magnemite/scene.gltf" rotation="0 180 0" scale="0.01 0.01 0.01" animation-mixer look-at="[gps-camera]"/>
             <a-camera gps-camera rotation-reader></a-camera>
         </a-scene>
     </body>
@@ -47,6 +47,6 @@
             y: cameraPosition.y,
             z: cameraPosition.z - 2 // 偏移2個單位，可以根據實際需求進行微調
         });
-        console.log(object.position)
+        console.log(object)
     </script>
 </html>
