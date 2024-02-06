@@ -17,7 +17,7 @@
             vr-mode-ui="enabled: false"
             embedded
             arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
-            <a-entity gltf-model="./assets/dragonite/scene.gltf" rotation="0 180 0" scale="0.01 0.01 0.01" animation-mixer look-at="[gps-camera]"/>
+            <a-entity gltf-model="./assets/dragonite/scene.gltf" rotation="0 180 0"  position="0 0 -10" scale="0.01 0.01 0.01" animation-mixer look-at="[gps-camera]"/>
             <a-camera gps-camera rotation-reader></a-camera>
         </a-scene>
     </body>
@@ -36,17 +36,18 @@
             console.log("經緯度",longitude, latitude)
         });
         // 獲取相機的位置
-        var cameraPosition = new THREE.Vector3();
-        var camera = document.querySelector('[gps-camera]');
-        camera.components.camera.camera.getWorldPosition(cameraPosition);
-
-        // 設置物體的位置為相機位置，稍微偏移，可以根據實際需求進行微調
-        var object = document.querySelector('a-entity');
-        object.setAttribute('position', {
-            x: cameraPosition.x,
-            y: cameraPosition.y,
-            z: cameraPosition.z - 2 // 偏移2個單位，可以根據實際需求進行微調
-        });
-        console.log(object)
+        // var cameraPosition = new THREE.Vector3();
+        // var camera = document.querySelector('[gps-camera]');
+        // camera.components.camera.camera.getWorldPosition(cameraPosition);
+        // console.log(cameraPosition)
+        // console.log(camera)
+        // // 設置物體的位置為相機位置，稍微偏移，可以根據實際需求進行微調
+        // var object = document.querySelector('a-entity');
+        // object.setAttribute('position', {
+        //     x: cameraPosition.x,
+        //     y: cameraPosition.y,
+        //     z: cameraPosition.z - 2 // 偏移2個單位，可以根據實際需求進行微調
+        // });
+        // console.log(object)
     </script>
 </html>
